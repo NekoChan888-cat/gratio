@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mainFragment"
+        android:icon="@drawable/ic_home"
+        android:title="@string/compliment_of_day" />
+    <item
+        android:id="@+id/tasksFragment"
+        android:icon="@drawable/ic_task"
+        android:title="@string/tasks" />
+    <item
+        android:id="@+id/messagesFragment"
+        android:icon="@drawable/ic_message"
+        android:title="@string/messages" />
+    <item
+        android:id="@+id/gameFragment"
+        android:icon="@drawable/ic_game"
+        android:title="@string/game" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings" />
+</menu>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Gratio</string>
+    <string name="compliment_of_day">Комплимент дня</string>
+    <string name="tasks">Задания</string>
+    <string name="messages">Сообщения</string>
+    <string name="game">Игра</string>
+    <string name="settings">Настройки</string>
+</resources>

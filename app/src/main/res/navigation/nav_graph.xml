@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.gratio.ui.main.MainFragment"
+        android:label="Главная" />
+
+    <fragment
+        android:id="@+id/tasksFragment"
+        android:name="com.example.gratio.ui.tasks.TasksFragment"
+        android:label="Задания" />
+
+    <fragment
+        android:id="@+id/messagesFragment"
+        android:name="com.example.gratio.ui.messages.MessagesFragment"
+        android:label="Сообщения" />
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.gratio.ui.game.GameFragment"
+        android:label="Игра" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.gratio.ui.settings.LoginFragment"
+        android:label="Вход" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.gratio.ui.settings.SettingsFragment"
+        android:label="Настройки">
+
+        <action
+            android:id="@+id/action_settingsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+
+    </fragment>
+
+</navigation>
