@@ -3,31 +3,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/purple_50">
+    android:padding="16dp">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Отправить комплимент 💜"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Кнопка: Случайный комплимент из БД -->
+    <Button
+        android:id="@+id/btnRandomCompliment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Выберите комплимент или благодарность"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:gravity="center"
+        android:text="Случайный комплимент"
         android:layout_marginBottom="16dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMessageTemplates"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
-        android:paddingBottom="16dp" />
-
-    <Button
-        android:id="@+id/btnCustomMessage"
+    <!-- Поле для ввода своего текста -->
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Написать своё сообщение"
-        android:layout_marginTop="8dp" />
+        android:layout_marginBottom="16dp"
+        android:hint="Или напишите свой текст">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextCustomMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minLines="3"
+            android:gravity="top" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Кнопка отправки -->
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Отправить через..."
+        android:backgroundTint="@color/purple_500" />
 
 </LinearLayout>

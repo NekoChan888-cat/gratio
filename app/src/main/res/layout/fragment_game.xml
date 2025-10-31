@@ -2,14 +2,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center">
 
+    <!-- Заголовок -->
     <TextView
-        android:id="@+id/tvGamePlaceholder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Загрузка..." />
+        android:text="Колесо Удачи 🎡"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Баланс монет -->
+    <TextView
+        android:id="@+id/tvCoins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Монеты: 0"
+        android:textSize="18sp"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Кнопка "Крутить" -->
+    <Button
+        android:id="@+id/btnSpin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Крутить за 5 монет"
+        android:textSize="16sp"
+        android:padding="12dp" />
+
+    <!-- Подсказка -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выигрывай от 10 до 50 монет!"
+        android:textSize="14sp"
+        android:layout_marginTop="16dp"
+        android:textColor="#666666" />
 
 </LinearLayout>

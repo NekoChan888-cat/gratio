@@ -1,4 +1,5 @@
-// app/src/main/java/com/example/gratio/ui/main/MainFragment.kt
+// ui/main/MainFragment.kt
+
 package com.example.gratio.ui.main
 
 import android.os.Bundle
@@ -7,16 +8,27 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.gratio.R
+import com.example.gratio.data.AppDatabase
+import com.example.gratio.data.AppRepository
 import com.example.gratio.databinding.FragmentMainBinding
 import com.example.gratio.viewModel.MainViewModel
+import com.example.gratio.viewModel.MainViewModelFactory
 
 class MainFragment : Fragment() {
+
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels {
+        val database = AppDatabase.getDatabase(requireContext())
+        val repository = AppRepository(database)
+        MainViewModelFactory(requireActivity().application, repository)
+    }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -24,16 +36,18 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Пример использования ViewModel
         viewModel.complimentOfDay.observe(viewLifecycleOwner) { compliment ->
-            binding.tvComplimentOfDay.text = compliment
+            binding.textViewCompliment.text = compliment
         }
-
-        // Заглушка для картинки дня
-        binding.ivImageOfDay.setImageResource(R.drawable.ic_launcher_background)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        viewModel.complimentOfDay.observe(viewLifecycleOwner) { compliment ->
+            binding.textViewCompliment.text = compliment
+        }
     }
+
 }

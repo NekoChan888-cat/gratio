@@ -1,4 +1,5 @@
-// app/src/main/java/com/example/gratio/model/MessageTemplate.kt
+// model/MessageTemplate.kt
+
 package com.example.gratio.model
 
 import androidx.room.Entity
@@ -6,9 +7,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "message_templates")
 data class MessageTemplate(
-    @PrimaryKey val template_id: Long,
+    @PrimaryKey val template_id: String,
     val text: String,
-    val category: String,
+    val category: String, // например, "thank_you", "compliment"
     val language_code: String = "ru",
-    val is_global: Int = 1
+    val is_global: Boolean = true
 )

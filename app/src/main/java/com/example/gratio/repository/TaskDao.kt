@@ -1,18 +1,24 @@
-// app/src/main/java/com/example/gratio/repository/TaskDao.kt
+// repository/TaskDao.kt
+
 package com.example.gratio.repository
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.example.gratio.model.Task
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TaskDao {
-    @Query("SELECT * FROM tasks")
-    fun getAllTasks(): Flow<List<Task>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertTask(task: Task)
+    suspend fun insert(task: Task)
 
-    @Insert
-    suspend fun insertTasks(tasks: List<Task>)
-}
+    @Query("SELECT * FROM tasks WHERE category = :category ORDER BY created_at DESC LIMIT 1")
+    suspend fun getRandomTask(category: String): Task?
+
+    @Query("SELECT * FROM tasks")
+    suspend fun getAllTasks(): List<Task>
+
+    @Query("SELECT * FROM tasks WHERE task_id = :taskId")
+    suspend fun getTaskById(taskId: String): Task?}

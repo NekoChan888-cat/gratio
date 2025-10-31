@@ -1,43 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragment">
 
+    <!-- Главный экран -->
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.gratio.ui.main.MainFragment"
-        android:label="Главная" />
+        android:label="Главная"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 
+    <!-- Экран входа/регистрации -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.gratio.ui.settings.LoginFragment"
+        android:label="Вход"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+    <!-- Другие фрагменты -->
     <fragment
         android:id="@+id/tasksFragment"
         android:name="com.example.gratio.ui.tasks.TasksFragment"
-        android:label="Задания" />
+        android:label="Задания"
+        tools:layout="@layout/fragment_tasks" />
 
     <fragment
         android:id="@+id/messagesFragment"
         android:name="com.example.gratio.ui.messages.MessagesFragment"
-        android:label="Сообщения" />
-
-    <fragment
-        android:id="@+id/gameFragment"
-        android:name="com.example.gratio.ui.game.GameFragment"
-        android:label="Игра" />
-
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.gratio.ui.settings.LoginFragment"
-        android:label="Вход" />
+        android:label="Сообщения"
+        tools:layout="@layout/fragment_messages" />
 
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.gratio.ui.settings.SettingsFragment"
-        android:label="Настройки">
-
-        <action
-            android:id="@+id/action_settingsFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-
-    </fragment>
+        android:label="Настройки"
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>
